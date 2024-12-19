@@ -1,0 +1,21 @@
+﻿### CUSTOMER POST 
+
+POST http://localhost:5207/api/customers
+Accept: application/json
+
+{
+  "fullName": "John Doe",
+  "nationalNumber": "12345678901",
+  "dateOfBirth": "1990-01-01",
+  "birthDate": "1990-01-01T00:00:00Z",
+  "riskLimit": 5000.00
+}
+
+
+### CUSTOMER GET BY ID
+
+
+GET http://localhost:5207/api/customers/{{id}}
+Accept: application/json
+
+}

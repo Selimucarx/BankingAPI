@@ -1,0 +1,13 @@
+﻿
+POST http://localhost:5100/api/Transaction
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6IjRkNGQ2MWU2LWMzYzEtNDYxYi05MGZhLTg4NmI4MTBmODI5ZSIsImV4cCI6MTczMzk5MzY1MSwiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.TlxcW3wh9jQveqazaga76fNd4WruU9gDFrEkryZgJ1Y
+Content-Type: application/json
+
+
+{
+  "cardId": "c927a1ae-f9f0-4efc-8845-3167da93843f",
+  "amount": 150.00,
+  "description": "Online shopping",
+  "SenderIban": "12321321321321321",
+  "ReceiverIban": "12321321321321321"
+}
