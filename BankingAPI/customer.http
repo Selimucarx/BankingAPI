@@ -1,21 +1,99 @@
-﻿### CUSTOMER POST 
+﻿### CREATE CUSTOMER
 
-POST http://localhost:5207/api/customers
-Accept: application/json
+POST http://localhost:5100/api/customers
+Content-Type: application/json
 
 {
-  "fullName": "John Doe",
-  "nationalNumber": "12345678901",
-  "dateOfBirth": "1990-01-01",
-  "birthDate": "1990-01-01T00:00:00Z",
-  "riskLimit": 5000.00
+  "Email": "selim@selim.com",
+  "Iban": "12321321321321321",
+  "AccountName": "Vadesiz",
+  "AccountNumber": "1234567891012345",
+  "Password": "123456Aa/",
+  "FullName": "John Doe",
+  "NationalNumber": "12345678910",
+  "PlaceOfBirth": "Istanbul",
+  "DateOfBirth": "1990-01-01"
+}
+
+### LOGIN CUSTOMER
+
+POST http://localhost:5100/api/customers/token
+Content-Type: application/json
+
+{
+  "Email": "selim@selim.com",
+  "Password": "123456Aa/"
+}
+
+### GET ALL CUSTOMERS
+
+GET http://localhost:5100/api/customers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6ImM3M2EzMWUyLTY3NWQtNDI4Ny05ZDNmLThlMWY1YjYxY2E2ZSIsImV4cCI6MTczNDM0MDgwMSwiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.D1sN-NphHsAl_ouMKEIWMOAV-a08v63UOK871sWjUaU
+Content-Type: application/json
+
+
+### GET BY ID CUSTOMER
+
+GET http://localhost:5100/api/customers/12e37d9c-977a-4e0d-999b-b711c092d313
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6IjFhMWM4MGMwLTJjZjAtNGM5Ny05MDZkLTJjNjdhZmIwMDJkYiIsImV4cCI6MTczNDI5OTMxMywiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.MjLCtx3uBKGZSG__5ava95_RTE-EaJWcdndwsZdjPc4
+Content-Type: application/json
+
+
+### UPDATE CUSTOMER
+
+PUT http://localhost:5100/api/customers/12e37d9c-977a-4e0d-999b-b711c092d313
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6IjFhMWM4MGMwLTJjZjAtNGM5Ny05MDZkLTJjNjdhZmIwMDJkYiIsImV4cCI6MTczNDI5OTMxMywiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.MjLCtx3uBKGZSG__5ava95_RTE-EaJWcdndwsZdjPc4
+Content-Type: application/json
+
+{
+  "Email": "degisti@degisti.com",
+  "FullName": "selim"
+}
+
+### UPDATE PASSWORD 
+
+PATCH http://localhost:5100/api/customers/f5cd631b-6533-4391-8e33-422df5440cbd/password
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6ImZmNmU0N2JkLTk3MDgtNDkwOC04MzFmLTdhMTRlOGY4ZTAwNSIsImV4cCI6MTczNDMzNDkzMiwiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.B9tstxnybkfLUmzbn82CnnkZeTigq-FerFjogkUty-A
+Content-Type: application/json
+
+{
+  "currentPassword": "123456Aa/",
+  "newPassword": "123456Aa*"
 }
 
 
-### CUSTOMER GET BY ID
+### SOFT DELETE CUSTOMER
+
+DELETE http://localhost:5100/api/customers/soft/3f8461e7-e0d9-4c36-b4f0-25ef755d3ae4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6IjdmODI5ZjY1LTlkY2YtNDQ0YS05N2FhLTY1ODRhYzFjYjIwYSIsImV4cCI6MTczNDMzNzYwNywiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.7_yFxjcWzVsgsg5P791gYjSgMQzTduSsZaUpirCgisQ
+Content-Type: application/json
+
+###  HARD DELETE CUSTOMER
+
+DELETE http://localhost:5100/api/customers/hard/3f8461e7-e0d9-4c36-b4f0-25ef755d3ae4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6IjdmODI5ZjY1LTlkY2YtNDQ0YS05N2FhLTY1ODRhYzFjYjIwYSIsImV4cCI6MTczNDMzNzYwNywiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.7_yFxjcWzVsgsg5P791gYjSgMQzTduSsZaUpirCgisQ
+Content-Type: application/json
 
 
-GET http://localhost:5207/api/customers/{{id}}
-Accept: application/json
 
+
+
+
+
+
+
+
+
+
+### LOGOUT CUSTOMER
+
+POST http://localhost:5100/api/customers/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6ImM3M2EzMWUyLTY3NWQtNDI4Ny05ZDNmLThlMWY1YjYxY2E2ZSIsImV4cCI6MTczNDM0MDgwMSwiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.D1sN-NphHsAl_ouMKEIWMOAV-a08v63UOK871sWjUaU
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6ImM3M2EzMWUyLTY3NWQtNDI4Ny05ZDNmLThlMWY1YjYxY2E2ZSIsImV4cCI6MTczNDM0MDgwMSwiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.D1sN-NphHsAl_ouMKEIWMOAV-a08v63UOK871sWjUaU"
 }
+
+
+

@@ -1,3 +1,15 @@
-﻿namespace BankingAPI.Application.Requests;
+﻿using BankingAPI.Domain.Entities;
+using BankingAPI.Domain.Enums;
 
-public record puschadebit();
+namespace BankingAPI.Application.Requests;
+
+public record Puschadebit(
+    Guid CustomerId, 
+    Guid AccountId,
+    CardType CardType,
+    string CardNumber,
+    string Cvv,
+    bool IsActive,
+    BankName BankName,
+    decimal Amount 
+);

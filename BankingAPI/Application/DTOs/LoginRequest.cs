@@ -1,5 +1,5 @@
 ﻿namespace BankingAPI.Application.DTOs;
 
-public record LoginCustomerDto(
-    string? Email,
-    string? Password);
+public record LoginRequest(
+    string Email,
+    string Password);

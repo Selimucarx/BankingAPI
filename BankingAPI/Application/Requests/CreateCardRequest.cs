@@ -2,8 +2,7 @@
 
 namespace BankingAPI.Application.Requests;
 
-
-public record CreateCreditCardRequest(
+public record CreateCardRequest(
     Guid CustomerId,
     Guid? AccountId,
     CardType? CardType,
@@ -13,4 +12,3 @@ public record CreateCreditCardRequest(
     decimal? LimitAmount,
     decimal? AvailableLimit,
     bool? IsActive);
-

@@ -1,6 +1,13 @@
-﻿namespace BankingAPI.Application.Mappings;
+﻿using AutoMapper;
+using BankingAPI.Application.DTOs;
+using BankingAPI.Domain.Entities;
 
-public class AccountMapper
+namespace BankingAPI.Application.Mappings;
+
+public class AccountMapper : Profile
 {
-    
+    public AccountMapper()
+    {
+        CreateMap<Account, AccountDto>().ReverseMap();
+    }
 }

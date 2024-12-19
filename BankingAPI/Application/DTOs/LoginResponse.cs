@@ -1,3 +1,3 @@
 ﻿namespace BankingAPI.Application.DTOs;
 
-public record LoginResponseDto(TokenDto? Token);
+public record LoginResponse(TokenDto? Token);

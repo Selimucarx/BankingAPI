@@ -1,13 +1,28 @@
-﻿
-POST http://localhost:5100/api/Transaction
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6IjRkNGQ2MWU2LWMzYzEtNDYxYi05MGZhLTg4NmI4MTBmODI5ZSIsImV4cCI6MTczMzk5MzY1MSwiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.TlxcW3wh9jQveqazaga76fNd4WruU9gDFrEkryZgJ1Y
+﻿POST http://localhost:5100/api/Transaction
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6IjcyYmFhMGJjLWViMGMtNGE5Yi1hMmNjLWJjMDQyNjY2ZTFlNiIsImV4cCI6MTczNDA3OTI3NywiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.W0YW3EzDAmbpqlT2DUHtfppcPc402vdfMq2QFBc-nx4
 Content-Type: application/json
 
 
 {
-  "cardId": "c927a1ae-f9f0-4efc-8845-3167da93843f",
+  "cardId": "17bd3aa4-d785-40a9-a7a6-071fe3081ee2",
   "amount": 150.00,
   "description": "Online shopping",
   "SenderIban": "12321321321321321",
   "ReceiverIban": "12321321321321321"
+}
+
+### LANN TRANSFER KREDI BORC
+
+
+
+POST http://localhost:5100/api/Transaction/borc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6ImQ0ZTMyYjBmLWVhNGQtNGYwYS05YmNkLWEwNDkxZTA3YmRiMyIsImV4cCI6MTczNDE5NTY4MSwiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.rsXt25UfTWIn8Dsr9l0-auXDMlBPCbA2tK1zRKGWKrI
+Content-Type: application/json
+
+
+{
+  "accountId": "404fc99d-53a0-435b-ab78-13f485168b1a",
+  "amount": 150.00,
+  "BankName": "colendi",
+  "cardNumber": "1234567812345678"
 }

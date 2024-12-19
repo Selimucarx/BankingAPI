@@ -2,5 +2,5 @@
 
 public enum BankName
 {
-    
+    Colendi = 1
 }

@@ -1,6 +1,10 @@
-﻿namespace BankingAPI.Application.DTOs;
+﻿using BankingAPI.Domain.Enums;
 
-public class CreateBorcOde
-{
-    
-}
+namespace BankingAPI.Application.DTOs;
+
+public record CreateBorcOde(
+    Guid AccountId,
+    BankName BankName,
+    string? CardNumber,
+    decimal? Amount
+);

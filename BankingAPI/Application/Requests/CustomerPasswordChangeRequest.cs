@@ -1,3 +1,5 @@
-﻿namespace BankingAPI.Application.DTOs;
+﻿namespace BankingAPI.Application.Requests;
 
-public record CustomerPasswordChangeRequest(string CurrentPassword, string NewPassword);
+public record CustomerPasswordChangeRequest(
+    string? CurrentPassword,
+    string? NewPassword);

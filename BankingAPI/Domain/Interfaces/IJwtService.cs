@@ -1,9 +1,13 @@
-﻿using System.Security.Claims;
-using BankingAPI.Application.DTOs;
+﻿using BankingAPI.Domain.Enums;
 
 public interface IJwtService
 {
-      string GenerateToken(string email, string role);
+    (string Token, DateTime Expiration) GenerateToken(string userId, Role role);
+    bool IsTokenBlacklisted(string token);
+    string? GetUserIdFromToken(string token);
+
+    bool ValidateToken(string token);
+
+    Task AddTokenToBlacklistAsync(string token);
+
 }
-
-

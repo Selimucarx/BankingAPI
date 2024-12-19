@@ -1,64 +1,57 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using AutoMapper;
-using BankingAPI.Application.DTOs;
-using BankingAPI.Domain.Entities;
+﻿using BankingAPI.Application.DTOs;
+using BankingAPI.Application.Requests;
 using BankingAPI.Domain.Interfaces;
-using Microsoft.IdentityModel.Tokens;
+using BankingAPI.Domain.Manager;
 
 namespace BankingAPI.Infrastructure.Services;
 
-public class CustomerService : ICustomerService
+public class CustomerService(
+    CustomerManager customerManager,
+    IJwtService jwtService)
+    : ICustomerService
 {
-    private readonly ICustomerRepository _customerRepository;
-    private readonly IMapper _mapper;
-    private readonly IJwtTokenGenerator _jwtTokenGenerator;
-
-    public CustomerService(ICustomerRepository customerRepository, IMapper mapper)
+    public async Task<CustomerDto> RegisterCustomerAsync(CreateCustomerRequest request)
     {
-        _customerRepository = customerRepository;
-        _mapper = mapper;
-        _jwtTokenGenerator = _jwtTokenGenerator;
+        return await customerManager.RegisterCustomerAsync(request);
     }
 
-    public async Task AddCustomerAsync(Customer customer)
+    public async Task<TokenDto?> AuthenticateCustomerAsync(LoginRequest loginRequest)
     {
-        await _customerRepository.AddAsync(customer);
+        return await customerManager.AuthenticateCustomerAsync(loginRequest.Email, loginRequest.Password);
     }
 
-    public async Task<Customer?> GetCustomerByIdAsync(Guid id)
+    public async Task<CustomerDto?> GetCustomerDetailsByIdAsync(Guid customerId)
     {
-        return await _customerRepository.GetByIdAsync(id);
+        return await customerManager.GetCustomerDetailsByIdAsync(customerId);
     }
 
-    public async Task<IEnumerable<Customer>> GetAllCustomersAsync()
+    public async Task<bool> ChangeCustomerPasswordAsync(Guid customerId, CustomerPasswordChangeRequest request)
     {
-        return await _customerRepository.GetAllAsync();
+        return await customerManager.ChangeCustomerPasswordAsync(customerId, request);
     }
-    
-    
-    public async Task<TokenDto> LoginCustomerAsync(string email, string password)
+
+    public async Task<CustomerDto> UpdateCustomerDetailsAsync(Guid customerId, UpdateCustomerRequest request)
     {
-        var customer = await _customerRepository.GetByEmailAsync(email);
+        return await customerManager.UpdateCustomerDetailsAsync(customerId, request);
+    }
 
-        if (customer == null || customer.Password != password)
-        {
-            throw new UnauthorizedAccessException("Invalid email or password.");
-        }
+    public async Task<IEnumerable<CustomerDto>> RetrieveAllCustomersAsync()
+    {
+        return await customerManager.RetrieveAllCustomersAsync();
+    }
 
-        var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Email, email),
-            new Claim(ClaimTypes.NameIdentifier, customer.Id.ToString())
-        };
+    public async Task PermanentlyDeleteCustomerAsync(Guid customerId)
+    {
+        await customerManager.PermanentlyDeleteCustomerAsync(customerId);
+    }
 
-        var token = _jwtTokenGenerator.GenerateToken(claims);
+    public async Task DeactivateCustomerAsync(Guid customerId)
+    {
+        await customerManager.DeactivateCustomerAsync(customerId);
+    }
 
-        return new TokenDto
-        {
-            Token = token.Token,
-            Expiration = token.Expiration
-        };
+    public async Task LogoutCustomerAsync(string token)
+    {
+        await jwtService.AddTokenToBlacklistAsync(token); 
     }
 }

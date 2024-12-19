@@ -1,6 +1,4 @@
-﻿
-
-namespace BankingAPI.Domain.Entities;
+﻿namespace BankingAPI.Domain.Entities;
 
 public enum CardType
 {

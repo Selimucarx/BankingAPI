@@ -1,3 +1,3 @@
-﻿namespace BankingAPI.Application.DTOs;
+﻿namespace BankingAPI.Application.Responses;
 
-public record UpdateActivityResponse(bool IsActive);
+public record UpdateActivityResponse(bool? IsActive);

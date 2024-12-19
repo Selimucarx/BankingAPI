@@ -1,19 +1,18 @@
-﻿using BankingAPI.Application.DTOs;
+﻿using BankingAPI.Application.Requests;
 using FluentValidation;
 
 namespace BankingAPI.Application.Validators;
 
-public class UpdateCustomerValidator : AbstractValidator<CustomerUpdateRequest>
+public class CustomerUpdateValidator : AbstractValidator<UpdateCustomerRequest>
 {
-
-    UpdateCustomerValidator()
+    public CustomerUpdateValidator()
     {
         ValidateFullName();
         ValidateEmail();
     }
-    
-    
-    private void ValidateFullName() 
+
+
+    private void ValidateFullName()
     {
         RuleFor(c => c.FullName)
             .NotNull().WithMessage("Full name cannot be null.")

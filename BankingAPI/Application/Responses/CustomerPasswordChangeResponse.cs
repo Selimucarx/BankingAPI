@@ -1,3 +1,3 @@
-﻿namespace BankingAPI.Application.DTOs;
+﻿namespace BankingAPI.Application.Responses;
 
-public record CustomerPasswordChangeResponse();
+public record CustomerPasswordChangeResponse;

@@ -1,4 +1,4 @@
-﻿namespace BankingAPI.Domain.Entities;
+﻿namespace BankingAPI.Domain.Enums;
 
 public enum Role
 {

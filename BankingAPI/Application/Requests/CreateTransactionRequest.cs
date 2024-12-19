@@ -1,10 +1,9 @@
-﻿namespace BankingAPI.Application.DTOs;
+﻿namespace BankingAPI.Application.Requests;
 
-public class CreateTransactionRequest
-{
-    public Guid AccountId { get; set; }
-    public decimal Amount { get; set; }
-    public string Description { get; set; }
-    public string SenderIban { get; set; }
-    public string ReceiverIban { get; set; }
-}
+public record CreateTransactionRequest(
+    Guid AccountId,
+    decimal? Amount,
+    string? Description,
+    string? SenderIban,
+    string? ReceiverIban
+);

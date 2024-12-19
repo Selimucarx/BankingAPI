@@ -1,5 +1,47 @@
-﻿### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=JetBrains Rider
+﻿### CREDIT TEST
+POST http://localhost:5100/api/Card
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6IjJmMDkwYzE1LTk0NWUtNDVkYy1hYmFlLTQ5ZmE3MTc2YzI1MyIsImV4cCI6MTczNDQzNTU5OSwiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.kOqRlBUxO99TQvgc7Itpk5sgdHfVyGHuacNnnGuOyVo
+Content-Type: application/json
 
-###
+{
+  "customerId": "8a64f120-c011-44fc-97ae-ca04bd1569d5",
+  "accountId": "c3e4cc49-3dce-429f-83b6-450ab4854344",
+  "cardType": 2,
+  "bankName": 1,
+  "cardNumber": "1234567812345678",
+  "expirationDate": "2026-12-31",
+  "cvv": "123",
+  "limitAmount": 5000.00,
+  "availableLimit": 5000.00,
+  "isActive": true
+}
+
+
+### DEBIT TEST
+POST http://localhost:5100/api/Card
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6ImQ0ZTMyYjBmLWVhNGQtNGYwYS05YmNkLWEwNDkxZTA3YmRiMyIsImV4cCI6MTczNDE5NTY4MSwiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.rsXt25UfTWIn8Dsr9l0-auXDMlBPCbA2tK1zRKGWKrI
+Content-Type: application/json
+
+{
+  "customerId": "55625d31-a18b-4efb-84c1-e0bacbac7ff5",
+  "accountId": "404fc99d-53a0-435b-ab78-13f485168b1a",
+  "cardType": 1,
+  "bankName": "colendi",
+  "cardNumber": "1234567812345699",
+  "expirationDate": "2026-12-31",
+  "cvv": "123",
+  "isActive": true
+}
+
+
+
+### LAN
+POST http://localhost:5100/api/Card/purchase
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxpbUBzZWxpbS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImp0aSI6IjJmMDkwYzE1LTk0NWUtNDVkYy1hYmFlLTQ5ZmE3MTc2YzI1MyIsImV4cCI6MTczNDQzNTU5OSwiaXNzIjoiSnd0QXV0aEFwcCIsImF1ZCI6Ikp3dEF1dGhBcHBVc2VyIn0.kOqRlBUxO99TQvgc7Itpk5sgdHfVyGHuacNnnGuOyVo
+Content-Type: application/json
+
+
+{
+  "Id": "cabc136e-f798-481a-95ca-c74abf338a7e",
+  "amount": 300.50
+}

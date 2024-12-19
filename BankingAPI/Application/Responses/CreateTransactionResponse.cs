@@ -1,17 +1,16 @@
-﻿namespace BankingAPI.Application.DTOs;
+﻿namespace BankingAPI.Application.Responses;
 
-public class CreateTransactionResponse
-{
-    public Guid Id { get; set; }
-    public Guid CardId { get; set; }
-    public Guid AccountId { get; set; }
-    public Guid CustomerId { get; set; }
-    public string? CardNumber { get; set; }
-    public string SenderIbanNumber { get; set; }
-    public string ReceiverIbanNumber { get; set; }
-    public decimal Amount { get; set; }
-    public string Description { get; set; }
-    public int PaymentType { get; set; } 
-    public DateTime CreatedAt { get; set; }
-    public bool IsDeleted { get; set; }
-}
+public record CreateTransactionResponse(
+    Guid Id,
+    Guid? CardId,
+    Guid? AccountId,
+    Guid? CustomerId,
+    string? CardNumber,
+    string? SenderIbanNumber,
+    string? ReceiverIbanNumber,
+    decimal? Amount,
+    string? Description,
+    int? PaymentType,
+    DateTime? CreatedAt,
+    bool? IsDeleted
+);

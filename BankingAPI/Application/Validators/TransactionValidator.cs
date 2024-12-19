@@ -1,6 +1,5 @@
 ﻿namespace BankingAPI.Application.Validators;
 
-public class TransactionValidator
+public abstract class TransactionValidator
 {
-    
 }

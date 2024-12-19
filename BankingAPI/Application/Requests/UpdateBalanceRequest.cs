@@ -1,3 +1,3 @@
-﻿namespace BankingAPI.Application.DTOs;
+﻿namespace BankingAPI.Application.Requests;
 
-public record UpdateBalanceRequest(Guid Id,decimal Balance);
+public record UpdateBalanceRequest(Guid Id, decimal? Balance);

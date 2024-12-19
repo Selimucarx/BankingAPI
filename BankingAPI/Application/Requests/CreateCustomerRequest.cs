@@ -1,6 +1,6 @@
 ﻿namespace BankingAPI.Application.Requests;
 
-public record CustomerCreateRequest(
+public record CreateCustomerRequest(
     string? FullName,
     string? Email,
     string? Password,

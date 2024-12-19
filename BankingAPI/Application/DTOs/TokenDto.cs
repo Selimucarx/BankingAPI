@@ -1,3 +1,3 @@
 ﻿namespace BankingAPI.Application.DTOs;
 
-public record TokenDto();
+public record TokenDto(string? Token, DateTime? Expiration);

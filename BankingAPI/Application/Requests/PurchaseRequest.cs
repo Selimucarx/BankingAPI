@@ -1,9 +1,6 @@
-﻿namespace BankingAPI.Application.DTOs;
+﻿namespace BankingAPI.Application.Requests;
 
-public class PurchaseRequest
-{
-    public Guid Id { get; set; }
-    public decimal Amount { get; set; }
-    
-
-}
+public record PurchaseRequest(
+    Guid Id,
+    decimal Amount
+);
